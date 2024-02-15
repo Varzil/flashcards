@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import "./App.css";
 const data = require('./data.json');
 
-function lmao(){
-  return data[Math.floor(Math.random() * data.length)];
-}
-
 const Flashcard = ({ word, meaning }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [height, setHeight] = useState('initial')
@@ -29,12 +25,14 @@ const Flashcard = ({ word, meaning }) => {
 
 
 const App = () => {
+  const myWord=data[Math.floor(Math.random() * data.length)];
+  console.log(myWord)
   return (
     <div className="container">
       <div className='topic'>
       <h1>Flashcards</h1>
       </div>
-        <Flashcard key={lmao()} word={lmao().Word} meaning={lmao().Meaning} />
+        <Flashcard word={myWord.Word} meaning={myWord.Meaning} />
     </div>
   );
 };
