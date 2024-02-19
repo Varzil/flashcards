@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./App.css";
 const data = require('./data.json');
-
+var list=[];
 function generateFlashCard(){
   return data[Math.floor(Math.random() * data.length)];
 }
@@ -16,7 +16,7 @@ const Flashcard = ({ word, meaning }) => {
     onClick={() => setIsFlipped(!isFlipped)}
   >
       <div className="front">
-        <h3 style={{alignItems:'center'}}>{word}</h3>
+        <h3 style={{textAlign:'center'}}>{word}</h3>
       </div>
       <div className="back">
         <h3>{meaning}</h3>
@@ -29,9 +29,34 @@ const Flashcard = ({ word, meaning }) => {
 
 const App = () => {
   const [myWord,setMyWord]=useState(generateFlashCard())
-  const [click,setClick]=useState(0)
+  const [click,setClick]=useState(1)
+  const [backClick,setBackClick]=useState(false)
     useEffect(()=>{
-      setMyWord(generateFlashCard());
+      if(click<=0){
+        setClick(1);
+      }
+      else{
+        if(backClick){
+          // if back button is clicked toh use list
+          console.log("setting word");
+          setMyWord(list[click-1]);
+          setBackClick(false)
+        }
+        else{
+          // if next button is clicked toh check if length ni andar ch toh 
+          // use that, if not toh pachi new random word
+          if(click>=list.length+1){
+            var demo=generateFlashCard()
+            setMyWord(demo);
+            list.push(demo);
+          }
+          else{
+            setMyWord(list[click-1]);
+          }
+        }
+      }
+      // console.log(list)
+      // console.log(click)
     },[click])
   
   return (
@@ -43,7 +68,10 @@ const App = () => {
         <Flashcard word={myWord.Word} meaning={myWord.Meaning} />
       </div>
       <div className="container2">
-        <button onClick={() => setClick((c) => c - 1)}>Previous</button>
+        <button onClick={() => {
+          setClick((c) => c - 1)
+          setBackClick(true)
+        }}>Previous</button>
         <button onClick={() => setClick((c) => c + 1)}>Next</button>
     </div>
     </>
