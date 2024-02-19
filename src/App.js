@@ -4,13 +4,12 @@ const data = require('./data.json');
 
 const Flashcard = ({ word, meaning }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [height, setHeight] = useState('initial')
 
 
   return (
     <div
     className={`container card ${isFlipped ? 'flip' : ''}`}
-    style={{ height: height }}
+    
     onClick={() => setIsFlipped(!isFlipped)}
   >
       <div className="front">
