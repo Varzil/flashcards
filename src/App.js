@@ -38,7 +38,6 @@ const App = () => {
       else{
         if(backClick){
           // if back button is clicked toh use list
-          console.log("setting word");
           setMyWord(list[click-1]);
           setBackClick(false)
         }
