@@ -16,7 +16,7 @@ const Flashcard = ({ word, meaning }) => {
     onClick={() => setIsFlipped(!isFlipped)}
   >
       <div className="front">
-        <h3 style={{textAlign:'center'}}>{word}</h3>
+        <h3 >{word}</h3>
       </div>
       <div className="back">
         <h3>{meaning}</h3>
