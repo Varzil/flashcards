@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import "./App.css";
+import DarkMode from "./DarkMode"
 const data = require('./data.json');
 var list=[];
+
 function generateFlashCard(){
   return data[Math.floor(Math.random() * data.length)];
 }
 
 const Flashcard = ({ word, meaning }) => {
   const [isFlipped, setIsFlipped] = useState(false);
-
   return (
     <div
     className={`container card ${isFlipped ? 'flip' : ''}`}
-    
-    onClick={() => setIsFlipped(!isFlipped)}
-  >
+    onClick={() => setIsFlipped(!isFlipped)}>
+
       <div className="front">
         <h3 >{word}</h3>
       </div>
@@ -24,8 +24,6 @@ const Flashcard = ({ word, meaning }) => {
     </div>
   );
 };
-
-
 
 const App = () => {
   const [myWord,setMyWord]=useState(generateFlashCard())
@@ -63,6 +61,9 @@ const App = () => {
     <div className="container">
       <div className='topic'>
       <h1>Flashcards</h1>
+      <div className='darkmode'>
+        <DarkMode />
+      </div>
       </div>
         <Flashcard word={myWord.Word} meaning={myWord.Meaning} />
       </div>
@@ -70,8 +71,8 @@ const App = () => {
         <button onClick={() => {
           setClick((c) => c - 1)
           setBackClick(true)
-        }}>Previous</button>
-        <button onClick={() => setClick((c) => c + 1)}>Next</button>
+        }}><p>Previous</p></button>
+        <button onClick={() => setClick((c) => c + 1)}><p>Next</p></button>
     </div>
     </>
   );
