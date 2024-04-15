@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import "./App.css";
-import DarkMode from "./DarkMode"
 const data = require('./data.json');
 var list=[];
 
@@ -16,10 +15,10 @@ const Flashcard = ({ word, meaning }) => {
     onClick={() => setIsFlipped(!isFlipped)}>
 
       <div className="front">
-        <h3 >{word}</h3>
+        <h3 className='inika-bold'>{word}</h3>
       </div>
       <div className="back">
-        <h3>{meaning}</h3>
+        <h3 className='inika-bold'>{meaning}</h3>
       </div>
     </div>
   );
@@ -61,9 +60,6 @@ const App = () => {
     <div className="container">
       <div className='topic'>
       <h1>Flashcards</h1>
-      <div className='darkmode'>
-        <DarkMode />
-      </div>
       </div>
         <Flashcard word={myWord.Word} meaning={myWord.Meaning} />
       </div>

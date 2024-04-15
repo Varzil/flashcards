@@ -1,15 +1,10 @@
 :root{
-  --body_background:#C8D0D2;
-  --body_color:white;
-  --link_color:black;
-  --button_color:white;
+  --body_background:#1B1A55;
+  --body_color:#a5a3db;
+  --link_color:white;
+  --button_color:#a5a3db;
 }
-[data-theme="dark"]{
-  --body_background: #282c34;
-  --body_color: black;
-  --link_color: rgb(233, 233, 233);
-  --button_color:black;
-}
+
 
 .inika-regular {
   font-family: "Inika", serif;
