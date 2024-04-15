@@ -1,10 +1,11 @@
-.topic{
+.topic {
   text-align: center;
 }
+
 body {
   background-color: var(--body_background);
   margin: 0;
-  transition:  all .1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .container {
@@ -20,16 +21,16 @@ body {
   align-items: center;
   border-radius: .25rem;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .3);
-  
+
   transform-style: preserve-3d;
   cursor: pointer;
   transition: transform 0.4s ease-out;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
-  
+
 
   margin: auto;
-width: 40%;
-padding: 100px;
+  width: 40%;
+  padding: 100px;
 }
 
 .card:hover {
@@ -56,7 +57,7 @@ padding: 100px;
   transform: rotateY(180deg);
 }
 
-.container2{
+.container2 {
   margin: 1rem 2rem;
   flex-wrap: wrap;
   justify-content: center;
@@ -64,7 +65,7 @@ padding: 100px;
   align-items: center;
 }
 
-button{
+button {
   background-color: var(--button_color);
   display: inline-block;
   cursor: pointer;
@@ -77,16 +78,19 @@ button{
   text-decoration-thickness: 3px;
 }
 
-p,h1,h3{
+p,
+h1,
+h3 {
   color: var(--link_color);
   text-align: center;
 }
 
-.topic{
+.topic {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.darkmode{
+
+.darkmode {
   left: 20px;
 }
